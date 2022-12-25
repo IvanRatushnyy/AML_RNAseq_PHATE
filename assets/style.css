@@ -1,0 +1,72 @@
+/* Variables */
+:root {
+    --sidebar-size: 300px;
+    --margin: 8px;
+}
+
+/* Custom fonts */
+@font-face {
+    font-family: "Montserrat";
+    src: url(montserrat.ttf);
+}
+
+/* Define our sidebar */
+.sidebar {
+    position: absolute;
+    left: 0px; top: 0px;
+    width: var(--sidebar-size); height: 100vh;
+    background-color: aliceblue;
+
+    font-family: "Montserrat";
+}
+
+/* H1 will be for large headings, H2 for smaller subheadings */
+h1 {
+    text-align: center;
+}
+
+h2 {
+    margin: var(--margin);
+    font-size: 12px;
+}
+
+/* All sliders, dropdowns, button selections */
+#dimensions {
+    margin: var(--margin);
+    margin-bottom: calc(var(--margin) * 3);
+}
+
+#annotation {
+    margin: var(--margin);
+    margin-bottom: calc(var(--margin) * 3);
+}
+
+#discrete {
+    margin: var(--margin);
+}
+
+#continuous {
+    margin: var(--margin);
+    margin-bottom: calc(var(--margin) * 3);
+}
+
+#opacity {
+    margin: var(--margin);
+}
+
+#dot_size {
+    margin: var(--margin);
+}
+
+
+.main {
+    position: absolute;
+    left: var(--sidebar-size); top: 0px;
+    width: calc(100vw - var(--sidebar-size)); height: 100vh;
+}
+
+#graph {
+    position: absolute;
+    right: 0px; padding: 20px;
+    width: calc(95vw - var(--sidebar-size)); height: 90vh;
+}
