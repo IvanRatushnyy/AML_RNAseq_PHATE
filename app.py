@@ -7,7 +7,7 @@ import pandas as pd
 
 
 #Dataframe of annotations
-annotations = pd.read_csv("dash/data/TARGET_AML_annotations.csv")
+annotations = pd.read_csv("data/TARGET_AML_annotations.csv")
 
 #Use first column as row names
 annotations = annotations.set_index("donorID")
@@ -21,7 +21,7 @@ z = []
 
 #Loop through lines and add coordinates to arrays
 i = 1
-with open("dash/data/coordinates.csv", "r") as f:
+with open("data/coordinates.csv", "r") as f:
     for line in f:
         if i == 1:
             x.append(float(line.strip()))
@@ -36,7 +36,7 @@ with open("dash/data/coordinates.csv", "r") as f:
 
 #Intersections between data and annotations
 intersection = []
-with open("dash/data/intersection.csv", "r") as f:
+with open("data/intersection.csv", "r") as f:
   for line in f:
     intersection.append(line.strip())
 
