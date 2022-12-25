@@ -2,8 +2,8 @@
 import plotly.express as px
 from dash import Dash, html, dcc, Input, Output
 import pandas as pd
-import numpy as np
-import phate
+#import numpy as np
+#import phate
 
 
 #Dataframe of annotations
