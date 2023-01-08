@@ -1,5 +1,4 @@
-# PHATE Visualization of Bulk RNA Sequencing Data from Pediatric Acute Myeloid Leukemia (pAML) Patient Samples
-[Website](https://aml-rnaseq-phate.onrender.com/)
+# [PHATE Visualization of Bulk RNA Sequencing Data from Pediatric Acute Myeloid Leukemia (pAML) Patient Samples](https://aml-rnaseq-phate.onrender.com/)
 
 ### Authors
 Ivan Ratushnyy
