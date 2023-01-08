@@ -7,12 +7,15 @@ import pandas as pd
 
 
 #Dataframe of annotations
-annotations = pd.read_csv("data/TARGET_AML_annotations.csv")
+annotations = pd.read_csv("dash/data/TARGET_AML_annotations.csv")
 
 #Use first column as row names
 annotations = annotations.set_index("donorID")
 annotations.index.names = [None]
 annotations = annotations.sort_index()
+
+#Remove unnecessary annotations
+annotations.drop('Comment', 1)
 
 #Initialize arrays which will store the x, y and z coordinates for the graph
 x = []
@@ -21,7 +24,7 @@ z = []
 
 #Loop through lines and add coordinates to arrays
 i = 1
-with open("data/coordinates.csv", "r") as f:
+with open("dash/data/coordinates.csv", "r") as f:
     for line in f:
         if i == 1:
             x.append(float(line.strip()))
@@ -33,13 +36,14 @@ with open("data/coordinates.csv", "r") as f:
             z.append(float(line.strip()))
             i = 1
 
-
 #Intersections between data and annotations
 intersection = []
-with open("data/intersection.csv", "r") as f:
+with open("dash/data/intersection.csv", "r") as f:
   for line in f:
     intersection.append(line.strip())
 
+#Sort intersection in order for annotations to line up with coordinate data
+intersection.sort()
 
 #Reusing px.colors.qualitative, so define as a variable.
 qualitative = px.colors.qualitative
@@ -52,11 +56,12 @@ discrete_colors = [qualitative.Plotly, qualitative.D3, qualitative.G10, qualitat
 #Our dash application
 app = Dash(__name__)
 
+#The layout of our app, or how it looks
 app.layout = html.Div([
     html.Div([
-        html.H1(children='PHATE'),
+        html.H1(children='AML RNA Seq'),
 
-        html.H2(children='Dimensions'),
+        html.H2(children='PHATE Dimensions'),
         dcc.RadioItems(id='dimensions', options=['2D', '3D'], value='2D'),
 
         html.H2(children='Selected annotation'),
@@ -80,6 +85,7 @@ app.layout = html.Div([
     ], className='main')
 ])
 
+#All input and output callbacks, in our case we update the graph based on values such as opacity
 @app.callback (
     Output('graph', 'figure'),
 
@@ -94,6 +100,7 @@ app.layout = html.Div([
     Input('dot_size', 'value')
 )
 
+#Function which will update our figure based on the inputs that are passed in
 def update_figure(dimensions, annotation, discrete, continuous, opacity, dot_size):
 
     current_annotation = annotations.transpose()[intersection].loc[annotation]
@@ -103,15 +110,22 @@ def update_figure(dimensions, annotation, discrete, continuous, opacity, dot_siz
     else:
         current_annotation = current_annotation.astype(str)
 
-    discrete
-
     if dimensions == '3D':
-        fig = px.scatter_3d(x=x, y=y, z=z, color=current_annotation, color_continuous_scale=continuous, color_discrete_sequence=discrete_colors[discrete_color_names.index(discrete)], opacity=opacity)
+        fig = px.scatter_3d(x=x, y=y, z=z, color=current_annotation, color_continuous_scale=continuous, color_discrete_sequence=discrete_colors[discrete_color_names.index(discrete)], opacity=opacity, labels={'x': 'PHATE 1', 'y': 'PHATE 2', 'z': 'PHATE 3', 'color': annotation})
     else:
-        fig = px.scatter(x=x, y=y, color=current_annotation, color_continuous_scale=continuous, color_discrete_sequence=discrete_colors[discrete_color_names.index(discrete)], opacity=opacity)
+        fig = px.scatter(x=x, y=y, color=current_annotation, color_continuous_scale=continuous, color_discrete_sequence=discrete_colors[discrete_color_names.index(discrete)], opacity=opacity, labels={'x': 'PHATE 1', 'y': 'PHATE 2', 'z': 'PHATE 3', 'color': annotation})
+
+    for trace in fig.data:
+        if trace.name.lower() == "yes":
+            trace.marker.color = "#3FEB69"
+        elif trace.name.lower() == "no":
+            trace.marker.color = "#E02F39"
+        elif trace.name.lower() == "unknown" or trace.name.lower() == "na":
+            trace.marker.color = "#D3D3D3"
 
     return fig.update_traces(marker={'size': dot_size})
 
+#Functions to check if a string is an int or a float
 def isint(string):
     try:
         int(string)
@@ -125,8 +139,10 @@ def isfloat(string):
         return True
     except:
         return False
-    
+
+#Define our server
 server = app.server
-    
+
+#Run our application
 if __name__ == '__main__':
     app.run_server(debug=True)
