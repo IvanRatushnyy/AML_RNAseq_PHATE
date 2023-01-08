@@ -7,6 +7,11 @@ Alexander Ratushny
 
 Hamid Bolouri
 
+### Description
+The [website](https://aml-rnaseq-phate.onrender.com/) allows PHATE visualization and exploration of bulk [RNA-seq data](https://www.nature.com/articles/s41467-022-34965-4) from pAML patient samples.
+
+The RNA-seq data was initially processed. Genes with low expression (i.e., max gene expression value < 5.0) and low variability (i.e., standard deviation < 0.3) across samples were filtered out and not used in the analysis. The filtered RNA-seq data was converted into PHATE coordinates using the [Python PHATE package](https://phate.readthedocs.io/en/stable/). [Plotly](https://plotly.com/) was used to visualize graphs based on these coordinates and the [Dash](https://dash.plotly.com/) framework was utilized to build the layout of the application. Lastly, the whole application was hosted on [Render](https://render.com/).
+
 ### Current functionality
 #### Selection of whether the PHATE graph is displayed in 2 dimensions or 3 dimensions
 
@@ -18,7 +23,7 @@ Hamid Bolouri
 
 <img width="1084" alt="3D graph" src="https://user-images.githubusercontent.com/108242614/211180755-1d7f1466-874a-4e80-a515-629bf8775eff.png">
 
-#### Annotation color changes based on a list of discrete and continous colormaps
+#### Sample annotation color changes based on a list of discrete and continous colormaps
 
 Continous colormap change
 
