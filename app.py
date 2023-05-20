@@ -4,7 +4,6 @@ import plotly.graph_objects as go
 from plotly.subplots import make_subplots
 from dash import Dash, html, dcc, Input, Output, State
 import pandas as pd
-import time
 #import numpy as np
 #import phate
 
