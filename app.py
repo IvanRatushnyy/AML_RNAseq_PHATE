@@ -42,7 +42,7 @@ qualitative = px.colors.qualitative
 discrete_colors = [qualitative.Plotly, qualitative.D3, qualitative.G10, qualitative.T10, qualitative.Alphabet, qualitative.Dark24, qualitative.Light24, qualitative.Set1, qualitative.Pastel1, qualitative.Dark2, qualitative.Set2, qualitative.Pastel2, qualitative.Set3, qualitative.Antique, qualitative.Bold, qualitative.Pastel, qualitative.Prism, qualitative.Safe, qualitative.Vivid]
 
 #Dataframe of annotations
-annotations = pd.read_csv('dash/data/TARGET_AML_annotations.csv')
+annotations = pd.read_csv('data/TARGET_AML_annotations.csv')
 
 #Use first column as row names
 annotations = annotations.set_index('donorID')
@@ -54,13 +54,13 @@ annotations.drop('Comment', 1)
 
 #Add all id names into list
 names = []
-with open('dash/data/id_names.csv', 'r') as file:
+with open('data/id_names.csv', 'r') as file:
     for name in file:
         names.append(name)
 
 #Loop through lines and add coordinates to arrays
 for name in file_names:
-    with open('dash/data/coordinates/'+name, 'r') as file:
+    with open('data/coordinates/'+name, 'r') as file:
         index = 0
 
         for line in file:
@@ -71,7 +71,7 @@ for name in file_names:
 
 #Intersections between data and annotations
 intersection = []
-with open('dash/data/intersection.csv', 'r') as f:
+with open('data/intersection.csv', 'r') as f:
   for line in f:
     intersection.append(line.strip())
 
