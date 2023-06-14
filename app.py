@@ -7,6 +7,8 @@ import pandas as pd
 #import numpy as np
 #import phate
 
+
+
 #Initialize arrays which will store the x, y and z coordinates for each visualization type
 #PHATE
 x_phate = []
@@ -40,7 +42,7 @@ qualitative = px.colors.qualitative
 discrete_colors = [qualitative.Plotly, qualitative.D3, qualitative.G10, qualitative.T10, qualitative.Alphabet, qualitative.Dark24, qualitative.Light24, qualitative.Set1, qualitative.Pastel1, qualitative.Dark2, qualitative.Set2, qualitative.Pastel2, qualitative.Set3, qualitative.Antique, qualitative.Bold, qualitative.Pastel, qualitative.Prism, qualitative.Safe, qualitative.Vivid]
 
 #Dataframe of annotations
-annotations = pd.read_csv('data/TARGET_AML_annotations.csv')
+annotations = pd.read_csv('dash/data/TARGET_AML_annotations.csv')
 
 #Use first column as row names
 annotations = annotations.set_index('donorID')
@@ -52,13 +54,13 @@ annotations.drop('Comment', 1)
 
 #Add all id names into list
 names = []
-with open('data/id_names.csv', 'r') as file:
+with open('dash/data/id_names.csv', 'r') as file:
     for name in file:
         names.append(name)
 
 #Loop through lines and add coordinates to arrays
 for name in file_names:
-    with open('data/coordinates/'+name, 'r') as file:
+    with open('dash/data/coordinates/'+name, 'r') as file:
         index = 0
 
         for line in file:
@@ -69,19 +71,15 @@ for name in file_names:
 
 #Intersections between data and annotations
 intersection = []
-with open('data/intersection.csv', 'r') as f:
+with open('dash/data/intersection.csv', 'r') as f:
   for line in f:
     intersection.append(line.strip())
 
 #Sort intersection in order for annotations to line up with coordinate data
 intersection.sort()
 
-
-#Reusing px.colors.qualitative, so define as a variable.
-qualitative = px.colors.qualitative
-
-#Name and values of all discrete colors built into Plotly. 
-#Predefined arrays needed because of the limited methods that px.colors.discrete has. First array contains names for the dropdown (color values would not show up), second contains values of the colors (cannot reference a value given a string).
+previous_annotation = 'Age.in.years'
+previous_dimensions = '2D'
 
 
 
@@ -113,8 +111,6 @@ app.layout = html.Div([
 
         html.H2(children='Dot size'),
         dcc.Slider(id='dot_size', min=2, max=15, value=8, marks={2: {'label': '2'}, 15: {'label': '15'}}),
-
-        html.Pre(id='selected-data')
     ], className='sidebar'),
 
     html.Div([
@@ -182,25 +178,6 @@ def update_figure(dimensions, annotation, discrete, continuous, opacity, dot_siz
             fig.update_xaxes(title_text=current_name+' 1', row=row, col=col)
             fig.update_yaxes(title_text=current_name+' 2', row=row, col=col)
 
-    selected = []
-
-    #Fixed
-    #Bug: whenever we finish updating selectedpoints, the selection resets to None and the function gets called again
-
-    #Bug for discrete, traces with different annotations get selected, likely because each trace has pointIndex from 1-x, so the nth point within each annotation gets selected
-    #for attributes such as race different bug, only one of a color is selected
-    #another bug: switching to 3d calls update function a bunch of times
-    if selected_data != None and dimensions != '3D':
-        for point in selected_data['points']:
-            selected.append(point['pointIndex'])
-
-        fig.update_traces(selectedpoints=selected)
-        fig.update_layout(selections=relayout_data['selections'])
-
-        print(selected_data)
-        print(selected)
-        print(relayout_data)
-
     for trace in fig.data:
             if trace.name.lower() == 'yes':
                 trace.marker.color = '#3FEB69'
@@ -208,67 +185,50 @@ def update_figure(dimensions, annotation, discrete, continuous, opacity, dot_siz
                 trace.marker.color = '#E02F39'
             elif trace.name.lower() == 'unknown' or trace.name.lower() == 'na':
                 trace.marker.color = '#D3D3D3'
-    
-    return fig.update_layout(coloraxis={'colorscale': continuous}, legend=dict(groupclick="toggleitem"), uirevision="preserve", clickmode='event+select')
-    
 
+    print(relayout_data)
 
+    global previous_annotation
+    global previous_dimensions
 
-'''
-@app.callback (
-    Output('graph', 'selectedData'),
-    Input('graph', 'selectedData'),
-    prevent_initial_call=True
-)
+    if annotation != previous_annotation:
+        selected_data = None
 
-def update_selected(selected):
-    print('update for selected')
-    print(selected)
-    return selected
-'''
+    if selected_data != None and '3D' not in (dimensions, previous_dimensions):
+        try:
+            if relayout_data['selections']:
+                traces = int(len(fig.data)/4)
 
+                for index in range(traces):
+                    selected = []
 
+                    for point in selected_data['points']:
+                        if point['curveNumber']%traces == index:
+                            selected.append(point['pointNumber'])
 
-'''
-@app.callback (
-    Output('selected-data', 'children'),
-    Input('graph', 'selectedData')
-)
+                    print(selected)
+                    
+                    i = index
+                    while i < len(fig.data):
+                        fig.update_traces(selectedpoints=selected, selector=i)
+                        i += traces
+            else:
+                fig.update_traces(selectedpoints=None)
 
-def selected(selected_data):
-    selected = []
-    for point in selected_data['points']:
-        selected.append(point['hovertext'])
-    
-    #print(selected)
-
-    selected_points = [i for i, name in enumerate(names) if name in selected]
-
-    print(selected_points)
-
-    fig.update_traces(selectedpoints=selected_points, unselected={'marker': {'opacity': 0.5}})
-
-    for index in range(4):
-        row = (index+1 - 1) // 2 + 1
-        col = (index+1 - 1) % 2 + 1
-
-        for trace in fig.data[0]:
-            print(trace.name)
-    
-    for index in range(4):
-        row = (index+1 - 1) // 2 + 1
-        col = (index+1 - 1) % 2 + 1
-
-        print(row)
-        print(col)
-
-        fig.update_traces(selectedpoints=selected_points, unselected={'marker': {'opacity': 0.5}})
-'''
+        except KeyError:
+            print('different action')
         
+        fig.update_layout(selections=relayout_data['selections'])
 
-  
+        print(selected_data['points'])
+        print(relayout_data)
+    
+    previous_annotation = annotation
+    previous_dimensions = dimensions
 
-#Functions to check if a string is a float
+    return fig.update_layout(coloraxis={'colorscale': continuous}, legend=dict(groupclick="toggleitem"), uirevision="preserve", clickmode='event+select')
+
+#Function to check if a string is a float
 def isfloat(string):
     try:
         float(string)
@@ -281,4 +241,4 @@ server = app.server
 
 #Run our application
 if __name__ == '__main__':
-    app.run_server(debug=True)
+    app.run_server(debug=False)
