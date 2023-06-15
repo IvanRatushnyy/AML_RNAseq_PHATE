@@ -58,6 +58,10 @@ h2 {
     margin: var(--margin);
 }
 
+#help_link {
+    margin: var(--margin);
+}
+
 
 .main {
     position: absolute;
