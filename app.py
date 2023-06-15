@@ -111,6 +111,8 @@ app.layout = html.Div([
 
         html.H2(children='Dot size'),
         dcc.Slider(id='dot_size', min=2, max=15, value=8, marks={2: {'label': '2'}, 15: {'label': '15'}}),
+        
+        html.A('Help', href='https://github.com/IvanRatushnyy/AML_RNAseq_PHATE', id='help_link')
     ], className='sidebar'),
 
     html.Div([
