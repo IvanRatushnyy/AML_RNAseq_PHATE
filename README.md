@@ -28,7 +28,7 @@ The sidebar currently allows to define the following attributes
 
 <img width="224" alt="image" src="https://github.com/IvanRatushnyy/AML_RNAseq_PHATE/assets/108242614/3fba4e05-77e2-45ae-97aa-f8a95c5763e1">
 
-##### Display plots in 2 dimensions or 3 dimensions
+#### Display plots in 2 dimensions or 3 dimensions
 
 2 dimensions
 
@@ -38,7 +38,7 @@ The sidebar currently allows to define the following attributes
 
 <img width="1417" alt="image" src="https://github.com/IvanRatushnyy/AML_RNAseq_PHATE/assets/108242614/b8b33df6-4e84-4b35-9230-38d52cb9a33b">
 
-##### Changing annotation types for samples
+#### Changing annotation types for samples
 
 Examples:
 
@@ -50,7 +50,7 @@ Sex (categorical attribute):
 
 <img width="1418" alt="image" src="https://github.com/IvanRatushnyy/AML_RNAseq_PHATE/assets/108242614/26a2b516-5c62-492a-aacd-53ccedf3b902">
 
-##### Sample annotation color changes based on a list of discrete and continous colormaps
+#### Sample annotation color changes based on a list of discrete and continous colormaps
 
 Continous colormap change (built-in colorscale name: agsunset)
 
@@ -60,7 +60,7 @@ Discrete colormap change (built-in colormap name: D3)
 
 <img width="1416" alt="image" src="https://github.com/IvanRatushnyy/AML_RNAseq_PHATE/assets/108242614/2835ff64-39c5-4edc-ae42-4e5be5b31882">
 
-##### Option of changing the opacity and the size of the datapoints on the displayed graph
+#### Option of changing the opacity and the size of the datapoints on the displayed graph
 
 Higher transparency
 
