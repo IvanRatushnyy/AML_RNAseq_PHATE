@@ -1,4 +1,4 @@
-# [PHATE Visualization of Bulk RNA Sequencing Data from Pediatric Acute Myeloid Leukemia (pAML) Patient Samples](https://aml-rnaseq-phate.onrender.com/)
+# [PHATE, PCA, tSNE, UMAP Visualizations of Bulk RNA Sequencing Data from Pediatric Acute Myeloid Leukemia (pAML) Patient Samples](https://aml-rnaseq-phate.onrender.com/)
 
 ### Authors
 Ivan Ratushnyy
@@ -8,52 +8,74 @@ Alexander Ratushny
 Hamid Bolouri
 
 ### Description
-The [website](https://aml-rnaseq-phate.onrender.com/) allows PHATE visualization and exploration of bulk [RNA-seq data](https://www.nature.com/articles/s41467-022-34965-4) from pAML patient samples.
+The [website](https://aml-rnaseq-phate.onrender.com/) allows PHATE, PCA, tSNE, UMAP visualization and exploration of bulk [RNA-seq data](https://www.nature.com/articles/s41467-022-34965-4) from pAML patient samples.
 
 The RNA-seq data was initially processed. Genes with low expression (i.e., max gene expression value < 5.0) and low variability (i.e., standard deviation < 0.3) across samples were filtered out and not used in the analysis. The filtered RNA-seq data was converted into PHATE coordinates using the [Python PHATE package](https://phate.readthedocs.io/en/stable/). [Plotly](https://plotly.com/) was used to visualize graphs based on these coordinates and the [Dash](https://dash.plotly.com/) framework was utilized to build the layout of the application. Lastly, the whole application was hosted on [Render](https://render.com/).
 
 ### Current functionality
-#### Selection of whether the PHATE graph is displayed in 2 dimensions or 3 dimensions
+#### Working with the modebar
+The modebar contains multiple useful tools, and can be found when hovering over the top right of the screen. Instructions for using these tools can be found on the [Plotly website](https://plotly.com/chart-studio-help/getting-to-know-the-plotly-modebar/).
 
-2 PHATE dimensions
+<img width="857" alt="image" src="https://github.com/IvanRatushnyy/AML_RNAseq_PHATE/assets/108242614/7c44fa74-f9a7-476f-baaa-97564f7e892d">
 
-<img width="1084" alt="2D graph" src="https://user-images.githubusercontent.com/108242614/211180745-baa1d650-28cf-4393-9b66-08223d2af93e.png">
+Box and lasso select tools have been changed for selected samples to be crossfiltered between plots. This will mean that when making a selection within a plot, that selection will also be highlighted for the remaining plots. An example is shown below.
 
-3 PHATE dimensions
+<img width="1422" alt="image" src="https://github.com/IvanRatushnyy/AML_RNAseq_PHATE/assets/108242614/4f51c27c-11c9-4a0c-829e-2958496736f1">
 
-<img width="1084" alt="3D graph" src="https://user-images.githubusercontent.com/108242614/211180755-1d7f1466-874a-4e80-a515-629bf8775eff.png">
+#### Using the sidebar
+The sidebar currently allows to define the following attributes
 
-#### Sample annotation color changes based on a list of discrete and continous colormaps
+<img width="224" alt="image" src="https://github.com/IvanRatushnyy/AML_RNAseq_PHATE/assets/108242614/3fba4e05-77e2-45ae-97aa-f8a95c5763e1">
 
-Continous colormap change
+##### Display plots in 2 dimensions or 3 dimensions
 
-<img width="1137" alt="Continuous color" src="https://user-images.githubusercontent.com/108242614/211180847-037f6f7f-d3a2-4ab3-ae62-5fced587dfc2.png">
+2 dimensions
 
-Default discrete colormap
+<img width="1415" alt="image" src="https://github.com/IvanRatushnyy/AML_RNAseq_PHATE/assets/108242614/8c4719b0-a8d5-4a99-8fcf-e34bfba07bc4">
 
-<img width="1210" alt="Default discrete" src="https://user-images.githubusercontent.com/108242614/211181136-eafd44e6-a69d-486d-8852-4bc64baa2480.png">
+3 dimensions
 
-Discrete colormap change
+<img width="1417" alt="image" src="https://github.com/IvanRatushnyy/AML_RNAseq_PHATE/assets/108242614/b8b33df6-4e84-4b35-9230-38d52cb9a33b">
 
-<img width="1211" alt="Changed discrete" src="https://user-images.githubusercontent.com/108242614/211181145-2a80a5b9-7329-490c-9469-2075c8260a34.png">
+##### Changing annotation types for samples
 
-#### Option of changing the opacity and the size of the datapoints on the displayed graph
+Examples:
+
+Age (attribute with continuous values):
+
+<img width="1418" alt="image" src="https://github.com/IvanRatushnyy/AML_RNAseq_PHATE/assets/108242614/ebb7ac05-d92c-4527-a57f-663b960697dd">
+
+Sex (categorical attribute):
+
+<img width="1418" alt="image" src="https://github.com/IvanRatushnyy/AML_RNAseq_PHATE/assets/108242614/26a2b516-5c62-492a-aacd-53ccedf3b902">
+
+##### Sample annotation color changes based on a list of discrete and continous colormaps
+
+Continous colormap change (built-in colorscale name: agsunset)
+
+<img width="1418" alt="image" src="https://github.com/IvanRatushnyy/AML_RNAseq_PHATE/assets/108242614/55a3f5b5-27e1-40f4-831a-50492ffa15d3">
+
+Discrete colormap change (built-in colormap name: D3)
+
+<img width="1416" alt="image" src="https://github.com/IvanRatushnyy/AML_RNAseq_PHATE/assets/108242614/2835ff64-39c5-4edc-ae42-4e5be5b31882">
+
+##### Option of changing the opacity and the size of the datapoints on the displayed graph
 
 Higher transparency
 
-<img width="1208" alt="Transparent" src="https://user-images.githubusercontent.com/108242614/211181260-fc8693a6-8415-422a-a366-2884e9d2fbf0.png">
+<img width="1418" alt="image" src="https://github.com/IvanRatushnyy/AML_RNAseq_PHATE/assets/108242614/29106aad-caf7-483d-93fe-6d48e0e0fc57">
 
 Opaque datapoints
 
-<img width="1216" alt="Opaque" src="https://user-images.githubusercontent.com/108242614/211181268-7b133c75-8895-48c7-9bd7-3517270acd9f.png">
+<img width="1420" alt="image" src="https://github.com/IvanRatushnyy/AML_RNAseq_PHATE/assets/108242614/e4951b09-b9b0-4c18-a447-07be681c00ac">
 
 Larger datapoints
 
-<img width="1205" alt="Larger datapoints" src="https://user-images.githubusercontent.com/108242614/211181311-b4691ab6-ce22-4447-93bf-10361b99d096.png">
+<img width="1421" alt="image" src="https://github.com/IvanRatushnyy/AML_RNAseq_PHATE/assets/108242614/f0c39388-dba8-41e7-8a16-4d00827bd4dc">
 
 Smaller datapoint size
 
-<img width="1208" alt="Smaller datapoints" src="https://user-images.githubusercontent.com/108242614/211181315-03a6cabf-7fba-4068-b774-3c7e079b755d.png">
+<img width="1415" alt="image" src="https://github.com/IvanRatushnyy/AML_RNAseq_PHATE/assets/108242614/40a21276-1f89-4d4d-9ae4-e10931e79d8f">
 
 ### References
 [RNA sequencing data](https://www.nature.com/articles/s41467-022-34965-4)
