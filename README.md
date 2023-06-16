@@ -10,7 +10,7 @@ Hamid Bolouri
 ### Description
 The [website](https://aml-rnaseq-phate.onrender.com/) allows PHATE, PCA, tSNE, UMAP visualization and exploration of bulk [RNA-seq data](https://www.nature.com/articles/s41467-022-34965-4) from pAML patient samples.
 
-The RNA-seq data was initially processed. Genes with low expression (i.e., max gene expression value < 5.0) and low variability (i.e., standard deviation < 0.3) across samples were filtered out and not used in the analysis. The filtered RNA-seq data was converted into PHATE coordinates using the [Python PHATE package](https://phate.readthedocs.io/en/stable/). [Plotly](https://plotly.com/) was used to visualize graphs based on these coordinates and the [Dash](https://dash.plotly.com/) framework was utilized to build the layout of the application. Lastly, the whole application was hosted on [Render](https://render.com/).
+The RNA-seq data was initially processed. Genes with low expression (i.e., max gene expression value < 5.0) and low variability (i.e., standard deviation < 0.3) across samples were filtered out and not used in the analysis. The filtered RNA-seq data was converted into PHATE coordinates using the [Python PHATE package](https://phate.readthedocs.io/en/stable/), PCA coordinates using [sklearn.decomposition](https://scikit-learn.org/stable/modules/generated/sklearn.decomposition.PCA.html), tSNE coordinates using [sklearn.manifold](https://scikit-learn.org/stable/modules/generated/sklearn.manifold.TSNE.html), and UMAP coordinates using [umap-learn](https://umap-learn.readthedocs.io/en/latest/). [Plotly](https://plotly.com/) was used to visualize graphs based on these coordinates and the [Dash](https://dash.plotly.com/) framework was utilized to build the layout of the application. Lastly, the whole application was hosted on [Render](https://render.com/).
 
 ### Current functionality
 #### Working with the modebar
@@ -81,7 +81,10 @@ Smaller datapoint size
 ### References
 [RNA sequencing data](https://www.nature.com/articles/s41467-022-34965-4)
 
-[PHATE](https://www.krishnaswamylab.org/projects/phate) library to generate coordinates of the data
+- [PHATE](https://www.krishnaswamylab.org/projects/phate) library to generate PHATE coordinates of the data
+- [PCA](https://scikit-learn.org/stable/modules/generated/sklearn.decomposition.PCA.html) library to generate PCA coordinates of the data
+- [tSNE](https://scikit-learn.org/stable/modules/generated/sklearn.manifold.TSNE.html) library to generate tSNE coordinates of the data
+- [UMAP](https://umap-learn.readthedocs.io/en/latest/) library to generate UMAP coordinates of the data
 
 [Plotly](https://plotly.com/) and [Dash](https://dash.plotly.com/) for rendering the graphs and creating the layout of the application respectively
 
