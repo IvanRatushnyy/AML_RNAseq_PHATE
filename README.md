@@ -16,7 +16,8 @@ The RNA-seq data was initially processed. Genes with low expression (i.e., max g
 #### Working with the modebar
 The modebar contains multiple useful tools, and can be found when hovering over the top right of the screen. Instructions for using these tools can be found on the [Plotly website](https://plotly.com/chart-studio-help/getting-to-know-the-plotly-modebar/).
 
-<img width="857" alt="image" src="https://github.com/IvanRatushnyy/AML_RNAseq_PHATE/assets/108242614/7c44fa74-f9a7-476f-baaa-97564f7e892d">
+<img width="1421" alt="image" src="https://github.com/IvanRatushnyy/AML_RNAseq_PHATE/assets/108242614/31598a93-4e55-4ea8-b925-eee9696e63de">
+
 
 Box and lasso select tools have been changed for selected samples to be crossfiltered between plots. This will mean that when making a selection within a plot, that selection will also be highlighted for the remaining plots. An example is shown below.
 
