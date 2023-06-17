@@ -21,12 +21,13 @@ The modebar contains multiple useful tools, and can be found when hovering over 
 
 Box and lasso select tools have been changed for selected samples to be crossfiltered between plots. This will mean that when making a selection within a plot, that selection will also be highlighted for the remaining plots. An example is shown below.
 
-<img width="1422" alt="image" src="https://github.com/IvanRatushnyy/AML_RNAseq_PHATE/assets/108242614/4f51c27c-11c9-4a0c-829e-2958496736f1">
+<img width="1484" alt="image" src="https://github.com/IvanRatushnyy/AML_RNAseq_PHATE/assets/108242614/d220bcb1-171e-435b-8447-e82f03c43e3f">
+
 
 #### Using the sidebar
 The sidebar currently allows to define the following attributes
 
-<img width="224" alt="image" src="https://github.com/IvanRatushnyy/AML_RNAseq_PHATE/assets/108242614/3fba4e05-77e2-45ae-97aa-f8a95c5763e1">
+<img width="222" alt="image" src="https://github.com/IvanRatushnyy/AML_RNAseq_PHATE/assets/108242614/e3d3c49b-99f1-4eed-8132-f281bcbd9679">
 
 #### Display plots in 2 dimensions or 3 dimensions
 
