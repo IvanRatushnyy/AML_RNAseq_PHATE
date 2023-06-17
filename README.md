@@ -1,4 +1,4 @@
-# [PHATE, PCA, tSNE, UMAP Visualizations of Bulk RNA Sequencing Data from Pediatric Acute Myeloid Leukemia (pAML) Patient Samples](https://aml-rnaseq-phate.onrender.com/)
+<img width="1484" alt="image" src="https://github.com/IvanRatushnyy/AML_RNAseq_PHATE/assets/108242614/cf613c9d-b1e7-43a5-a932-025c121e79fd"># [PHATE, PCA, tSNE, UMAP Visualizations of Bulk RNA Sequencing Data from Pediatric Acute Myeloid Leukemia (pAML) Patient Samples](https://aml-rnaseq-phate.onrender.com/)
 
 ### Authors
 Ivan Ratushnyy
@@ -33,11 +33,11 @@ The sidebar currently allows to define the following attributes
 
 2 dimensions
 
-<img width="1415" alt="image" src="https://github.com/IvanRatushnyy/AML_RNAseq_PHATE/assets/108242614/8c4719b0-a8d5-4a99-8fcf-e34bfba07bc4">
+<img width="1485" alt="image" src="https://github.com/IvanRatushnyy/AML_RNAseq_PHATE/assets/108242614/6a44c452-35ed-4c6e-b5d8-95878de54b8c">
 
 3 dimensions
 
-<img width="1417" alt="image" src="https://github.com/IvanRatushnyy/AML_RNAseq_PHATE/assets/108242614/b8b33df6-4e84-4b35-9230-38d52cb9a33b">
+<img width="1484" alt="image" src="https://github.com/IvanRatushnyy/AML_RNAseq_PHATE/assets/108242614/06ade80b-e9bb-48e9-b787-15e117a84fe7">
 
 #### Changing annotation types for samples
 
@@ -45,39 +45,39 @@ Examples:
 
 Age (attribute with continuous values):
 
-<img width="1418" alt="image" src="https://github.com/IvanRatushnyy/AML_RNAseq_PHATE/assets/108242614/ebb7ac05-d92c-4527-a57f-663b960697dd">
+<img width="1484" alt="image" src="https://github.com/IvanRatushnyy/AML_RNAseq_PHATE/assets/108242614/ae2222a4-6b3e-493b-894c-4fdf63a5c81a">
 
 Sex (categorical attribute):
 
-<img width="1418" alt="image" src="https://github.com/IvanRatushnyy/AML_RNAseq_PHATE/assets/108242614/26a2b516-5c62-492a-aacd-53ccedf3b902">
+<img width="1484" alt="image" src="https://github.com/IvanRatushnyy/AML_RNAseq_PHATE/assets/108242614/e899b796-32f3-4539-a814-5a4e13736ecd">
 
 #### Sample annotation color changes based on a list of discrete and continous colormaps
 
-Continous colormap change (built-in colorscale name: agsunset)
+Continous colormap change (built-in colorscale name: agsunset, changed from aggrnyl)
 
-<img width="1418" alt="image" src="https://github.com/IvanRatushnyy/AML_RNAseq_PHATE/assets/108242614/55a3f5b5-27e1-40f4-831a-50492ffa15d3">
+<img width="1486" alt="image" src="https://github.com/IvanRatushnyy/AML_RNAseq_PHATE/assets/108242614/ea0a8093-f32e-4664-b6bc-06fc2b47017d">
 
-Discrete colormap change (built-in colormap name: D3)
+Discrete colormap change (built-in colormap name: D3, changed from plotly)
 
-<img width="1416" alt="image" src="https://github.com/IvanRatushnyy/AML_RNAseq_PHATE/assets/108242614/2835ff64-39c5-4edc-ae42-4e5be5b31882">
+<img width="1484" alt="image" src="https://github.com/IvanRatushnyy/AML_RNAseq_PHATE/assets/108242614/1439b40c-4084-4540-bf69-a164aaeeb2e9">
 
 #### Option of changing the opacity and the size of the datapoints on the displayed graph
 
 Higher transparency
 
-<img width="1418" alt="image" src="https://github.com/IvanRatushnyy/AML_RNAseq_PHATE/assets/108242614/29106aad-caf7-483d-93fe-6d48e0e0fc57">
+<img width="1486" alt="image" src="https://github.com/IvanRatushnyy/AML_RNAseq_PHATE/assets/108242614/44e5fa50-6ce1-4f5c-a4e0-450992ba39d3">
 
 Opaque datapoints
 
-<img width="1420" alt="image" src="https://github.com/IvanRatushnyy/AML_RNAseq_PHATE/assets/108242614/e4951b09-b9b0-4c18-a447-07be681c00ac">
+<img width="1484" alt="image" src="https://github.com/IvanRatushnyy/AML_RNAseq_PHATE/assets/108242614/9a7cc868-9298-43c3-8eea-ddef8e222be8">
 
 Larger datapoints
 
-<img width="1421" alt="image" src="https://github.com/IvanRatushnyy/AML_RNAseq_PHATE/assets/108242614/f0c39388-dba8-41e7-8a16-4d00827bd4dc">
+<img width="1483" alt="image" src="https://github.com/IvanRatushnyy/AML_RNAseq_PHATE/assets/108242614/cdc4016f-e3c2-49dc-9644-96f9819b5abb">
 
 Smaller datapoint size
 
-<img width="1415" alt="image" src="https://github.com/IvanRatushnyy/AML_RNAseq_PHATE/assets/108242614/40a21276-1f89-4d4d-9ae4-e10931e79d8f">
+<img width="1486" alt="image" src="https://github.com/IvanRatushnyy/AML_RNAseq_PHATE/assets/108242614/80bf96e0-afa3-4b66-ae81-2f857375c4d9">
 
 ### References
 [RNA sequencing data](https://www.nature.com/articles/s41467-022-34965-4)
