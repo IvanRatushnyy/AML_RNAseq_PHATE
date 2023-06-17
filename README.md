@@ -1,4 +1,4 @@
-<img width="1484" alt="image" src="https://github.com/IvanRatushnyy/AML_RNAseq_PHATE/assets/108242614/cf613c9d-b1e7-43a5-a932-025c121e79fd"># [PHATE, PCA, tSNE, UMAP Visualizations of Bulk RNA Sequencing Data from Pediatric Acute Myeloid Leukemia (pAML) Patient Samples](https://aml-rnaseq-phate.onrender.com/)
+# [PHATE, PCA, tSNE, UMAP Visualizations of Bulk RNA Sequencing Data from Pediatric Acute Myeloid Leukemia (pAML) Patient Samples](https://aml-rnaseq-phate.onrender.com/)
 
 ### Authors
 Ivan Ratushnyy
@@ -57,9 +57,9 @@ Continous colormap change (built-in colorscale name: agsunset, changed from aggr
 
 <img width="1486" alt="image" src="https://github.com/IvanRatushnyy/AML_RNAseq_PHATE/assets/108242614/ea0a8093-f32e-4664-b6bc-06fc2b47017d">
 
-Discrete colormap change (built-in colormap name: D3, changed from plotly)
+Discrete colormap change (built-in colormap name: D3, changed from Plotly)
 
-<img width="1484" alt="image" src="https://github.com/IvanRatushnyy/AML_RNAseq_PHATE/assets/108242614/1439b40c-4084-4540-bf69-a164aaeeb2e9">
+<img width="1484" alt="image" src="https://github.com/IvanRatushnyy/AML_RNAseq_PHATE/assets/108242614/d0505fdd-a525-482c-9f75-95e8d946b568">
 
 #### Option of changing the opacity and the size of the datapoints on the displayed graph
 
